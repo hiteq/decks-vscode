@@ -1,28 +1,31 @@
-$binPath = ".\StreamDeckVSC/bin/Release/netcoreapp3.1"
+$binPath = ".\StreamDeckVSC/bin/Release/net6.0"
 $identifier = "com.nicollasr.streamdeckvsc"
 $pluginName = "$identifier.sdPlugin"
 
-function clean($target) {
+function clean {
+    param($target)
     dotnet clean -c Release -r $target
 
-    if($target -eq "osx-x64") {
-        Remove-Item ".\$identifier.mac.streamDeckPlugin" -Force
+    if($target -eq "osx-x64" -or $target -eq "osx-arm64") {
+        Remove-Item ".\$identifier.mac.streamDeckPlugin" -Force -ErrorAction SilentlyContinue
     } else {
-        Remove-Item ".\$identifier.streamDeckPlugin" -Force
+        Remove-Item ".\$identifier.streamDeckPlugin" -Force -ErrorAction SilentlyContinue
     }
 }
 
-function build($target) {
-    clean $target
+function build {
+    param($target)
+    & clean $target
     dotnet build -c Release -r $target
 }
 
-function pack($target) {
-    updateManifest $target
+function pack {
+    param($target)
+    & updateManifest $target
 
     $desiredPluginName = $pluginName
 
-    if($target -eq "osx-x64") {
+    if($target -eq "osx-x64" -or $target -eq "osx-arm64") {
         $desiredPluginName = $desiredPluginName -replace "$identifier","$identifier.mac"
     }
 
@@ -33,8 +36,9 @@ function pack($target) {
     Remove-Item "$binPath/$desiredPluginName" -Force -Recurse
 }
 
-function updateManifest($target) {
-    if ($target -eq "osx-x64") {
+function updateManifest {
+    param($target)
+    if ($target -eq "osx-x64" -or $target -eq "osx-arm64") {
         $manifestPath = "$binPath/$target/manifest.json"
 
         $manifest = Get-Content $manifestPath -raw | ConvertFrom-Json
@@ -45,7 +49,7 @@ function updateManifest($target) {
     }
 }
 
-foreach ($target in "win10-x64", "osx-x64") {
-    build $target
-    pack $target
+foreach ($target in @("win10-x64", "osx-x64", "osx-arm64")) {
+    & build $target
+    & pack $target
 }
