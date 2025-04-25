@@ -11,7 +11,7 @@
       "Tooltip": "Executes a Visual Studio Code command with the given command identifier (Command ID).",
       "SupportedInMultiActions": true,
       "PropertyInspectorPath": "PropertyInspector/ExecuteCommand.html",
-      "UUID": "com.nicollasr.streamdeckvsc.executecommand"
+      "UUID": "com.nicollasr.streamdeckvsc.mac.executecommand"
     },
     {
       "Icon": "Images/VisualStudioCode",
@@ -24,7 +24,7 @@
       "Tooltip": "Executes a terminal command.",
       "SupportedInMultiActions": true,
       "PropertyInspectorPath": "PropertyInspector/ExecuteTerminalCommand.html",
-      "UUID": "com.nicollasr.streamdeckvsc.executeterminalcommand"
+      "UUID": "com.nicollasr.streamdeckvsc.mac.executeterminalcommand"
     },
     {
       "Icon": "Images/VisualStudioCode",
@@ -37,7 +37,7 @@
       "Tooltip": "Insert snippet.",
       "SupportedInMultiActions": true,
       "PropertyInspectorPath": "PropertyInspector/InsertSnippet.html",
-      "UUID": "com.nicollasr.streamdeckvsc.insertsnippet"
+      "UUID": "com.nicollasr.streamdeckvsc.mac.insertsnippet"
     },
     {
       "Icon": "Images/VisualStudioCode",
@@ -50,7 +50,7 @@
       "Tooltip": "Change the language that is associated with the given document.",
       "SupportedInMultiActions": true,
       "PropertyInspectorPath": "PropertyInspector/ChangeLanguage.html",
-      "UUID": "com.nicollasr.streamdeckvsc.changelanguage"
+      "UUID": "com.nicollasr.streamdeckvsc.mac.changelanguage"
     },
     {
       "Icon": "Images/VisualStudioCode",
@@ -63,7 +63,7 @@
       "Tooltip": "Creates a terminal with the given settings.",
       "SupportedInMultiActions": true,
       "PropertyInspectorPath": "PropertyInspector/CreateTerminal.html",
-      "UUID": "com.nicollasr.streamdeckvsc.createterminal"
+      "UUID": "com.nicollasr.streamdeckvsc.mac.createterminal"
     },
     {
       "Icon": "Images/VisualStudioCode",
@@ -76,7 +76,7 @@
       "Tooltip": "Open a folder or workspace.",
       "SupportedInMultiActions": true,
       "PropertyInspectorPath": "PropertyInspector/OpenFolder.html",
-      "UUID": "com.nicollasr.streamdeckvsc.openfolder"
+      "UUID": "com.nicollasr.streamdeckvsc.mac.openfolder"
     }
   ],
   "SDKVersion": 2,
@@ -91,11 +91,11 @@
   "Version": "5.1.3",
   "OS": [
     {
-      "Platform": "windows",
-      "MinimumVersion": "10"
+      "Platform": "mac",
+      "MinimumVersion": "10.15"
     }
   ],
   "Software": {
-    "MinimumVersion": "4.1"
+    "MinimumVersion": "6.4"
   }
 }
